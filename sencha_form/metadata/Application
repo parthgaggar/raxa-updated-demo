@@ -1,0 +1,27 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "Account"
+        ],
+        "name": "raxa",
+        "requires": [
+            "Ext.MessageBox"
+        ],
+        "views": [
+            "MainView",
+            "LoginForm",
+            "RegisterForm",
+            "WelcomePanel",
+            "patientForm",
+            "feedbackForm",
+            "notificationpanel"
+        ]
+    },
+    "designerId": "application"
+}
