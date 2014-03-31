@@ -21,13 +21,14 @@ Ext.define('raxa.view.WelcomePanel', {
         'raxa.view.patientForm',
         'raxa.view.notificationpanel',
         'raxa.view.feedbackForm',
+        'raxa.view.NavigationView',
         'Ext.form.Panel',
         'Ext.carousel.Carousel',
+        'Ext.navigation.View',
         'Ext.tab.Bar'
     ],
 
     config: {
-        itemId: 'patientform',
         styleHtmlContent: true,
         items: [
             {
@@ -44,6 +45,11 @@ Ext.define('raxa.view.WelcomePanel', {
                 xtype: 'feedbackForm',
                 title: 'Feedback',
                 iconCls: 'reply'
+            },
+            {
+                xtype: 'navigationview',
+                title: 'Location',
+                iconCls: 'maps'
             }
         ],
         tabBar: {

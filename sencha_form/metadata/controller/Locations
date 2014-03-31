@@ -1,0 +1,285 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Locations"
+    },
+    "designerId": "83fcca44-1a39-4373-8855-03755f775b52",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "navigationview #listPanel list",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onLocationTap",
+                "implHandler": [
+                    ""
+                ],
+                "name": "disclose"
+            },
+            "designerId": "e6da04a6-3195-42c0-822a-5f10a28d8f17"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "navigationview #listPanel list",
+                "designer|targetType": "Ext.Button",
+                "fn": "onListLocationsTap",
+                "implHandler": [
+                    ""
+                ],
+                "name": "tap"
+            },
+            "designerId": "c61b011a-4c20-43d8-ac81-b3857124f985"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "navigationview",
+                "designer|targetType": "Ext.navigation.View",
+                "fn": "onBack",
+                "implHandler": [
+                    ""
+                ],
+                "name": "back"
+            },
+            "designerId": "18a1049f-bbf0-4d09-8186-562e4e77b7b7"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "navigationview",
+                "designer|targetType": "Ext.navigation.View",
+                "fn": "onStart",
+                "implHandler": [
+                    ""
+                ],
+                "name": "activate"
+            },
+            "designerId": "7c9b9f86-c6a9-4f20-8b96-aba2e84bb2df"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "navigationview #locationTextField",
+                "designer|targetType": "Ext.field.Text",
+                "fn": "onNewLocationPositionChange",
+                "implHandler": [
+                    ""
+                ],
+                "name": "change"
+            },
+            "designerId": "e60b92b9-e222-42b3-84b5-638b45270e26"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "navigationview #saveLocationButton",
+                "designer|targetType": "ext.button",
+                "fn": "onSaveLocationButtonTap",
+                "implHandler": [
+                    ""
+                ],
+                "name": "tap"
+            },
+            "designerId": "b15173cc-1960-43f2-a33f-466a37d34923"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "navigationview #listPanel list",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onLocationSwipe",
+                "implHandler": [
+                    ""
+                ],
+                "name": "itemswipe"
+            },
+            "designerId": "7688ed2f-dd54-4820-a471-a1c14659084d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showButtons",
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "77224081-bc8a-4445-84b5-7337fc3c04f4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "hideButtons",
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "4566bb74-fb96-43cc-8bd1-9869229f68f1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "str",
+                    "callback"
+                ],
+                "fn": "geocodeString",
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "99c41099-051b-4238-be57-f9a31e87a225"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mapView",
+                "selector": "navigationview #map",
+                "xtype": "Ext.Map"
+            },
+            "designerId": "a2e458b8-873f-48f2-a3f5-ccc2b350d742"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "navigationView",
+                "selector": "navigationview",
+                "xtype": "Ext.navigation.View"
+            },
+            "designerId": "2ecee221-d616-48dc-b49f-9edf775bc667"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mapPanel",
+                "selector": "navigationview #mapPanel",
+                "xtype": "Ext.Panel"
+            },
+            "designerId": "9c9f9aa4-8aa2-499f-94b9-eaee3bf4c10c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addLocationButton",
+                "selector": "navigationview #addLocationButton",
+                "xtype": "Ext.Button"
+            },
+            "designerId": "de48dbfe-cf0e-4da5-b212-ed175dd46827"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "listLocationsButton",
+                "selector": "navigationview #listLocationsButton",
+                "xtype": "Ext.Button"
+            },
+            "designerId": "7648938e-c1a6-4bfd-8b20-acb28f33f9ec"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "newLocationMap",
+                "selector": "navigationview #newLocationMap"
+            },
+            "designerId": "52552bea-dac0-4527-b9f9-57567eb479a6"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "newLocationForm",
+                "selector": "navigationview #formPanel"
+            },
+            "designerId": "ff967f78-9c61-4e5f-b7db-5cd487abd346"
+        }
+    ]
+}

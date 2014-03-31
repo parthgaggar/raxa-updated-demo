@@ -26,13 +26,11 @@ Ext.define('raxa.view.MainView', {
         items: [
             {
                 xtype: 'panel',
-                hidden: false,
                 itemId: 'homePanel',
                 layout: 'fit',
                 items: [
                     {
                         xtype: 'panel',
-                        hidden: false,
                         itemId: 'loginPanel',
                         items: [
                             {

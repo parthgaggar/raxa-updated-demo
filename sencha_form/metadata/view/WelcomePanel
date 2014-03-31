@@ -9,7 +9,7 @@
         "designer|userAlias": "welcomePanel",
         "designer|userClassName": "WelcomePanel",
         "docked": null,
-        "itemId": "patientform",
+        "itemId": null,
         "styleHtmlContent": true
     },
     "designerId": "46112402-0c63-4473-9bdf-4616bdcb5da6",
@@ -57,6 +57,20 @@
             },
             "designerId": "7f8a0fb5-01e5-4fd5-94ea-b7d58e976244",
             "masterInstanceId": "646bbc70-0765-4416-8a74-b41ff49d7c95"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "iconCls": "maps",
+                "title": "Location"
+            },
+            "designerId": "f03f6a18-4fb0-4209-856b-06a4ffa50873",
+            "masterInstanceId": "bda78f2e-97e6-45e3-813b-7e1690c12e8f"
         },
         {
             "type": "Ext.tab.Bar",

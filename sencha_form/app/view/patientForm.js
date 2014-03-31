@@ -75,7 +75,8 @@ Ext.define('raxa.view.patientForm', {
                     },
                     {
                         xtype: 'map',
-                        height: 320
+                        height: 250,
+                        itemId: 'newLocationMap'
                     },
                     {
                         xtype: 'textareafield',
@@ -90,7 +91,7 @@ Ext.define('raxa.view.patientForm', {
                 xtype: 'button',
                 itemId: 'patientButton',
                 ui: 'confirm',
-                text: 'Submit'
+                text: 'Add Location'
             }
         ]
     }

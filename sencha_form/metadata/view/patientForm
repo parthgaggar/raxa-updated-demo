@@ -100,7 +100,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "height": 320
+                        "height": 250,
+                        "itemId": "newLocationMap"
                     },
                     "configAlternates": {
                         "useCurrentLocation": "object"
@@ -135,7 +136,7 @@
                 "designer|uiInterfaceName": "confirm",
                 "iconCls": null,
                 "itemId": "patientButton",
-                "text": "Submit",
+                "text": "Add Location",
                 "ui": "confirm"
             },
             "designerId": "f94d952b-a4de-4143-9faf-2bfa1437b1b2"

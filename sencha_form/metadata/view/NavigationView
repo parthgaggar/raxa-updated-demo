@@ -1,0 +1,89 @@
+{
+    "type": "Ext.navigation.View",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "navigationview",
+        "designer|userClassName": "NavigationView"
+    },
+    "designerId": "bda78f2e-97e6-45e3-813b-7e1690c12e8f",
+    "cn": [
+        {
+            "type": "Ext.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "Map panel",
+                "title": "Locations"
+            },
+            "designerId": "25e0da8a-fa46-4395-adab-9801ac400b97",
+            "cn": [
+                {
+                    "type": "Ext.Map",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Map",
+                        "height": 200
+                    },
+                    "designerId": "c27ddc71-60e1-4079-9f03-8c3a1eed802c"
+                }
+            ]
+        },
+        {
+            "type": "Ext.navigation.Bar",
+            "reference": {
+                "name": "navigationBar",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top"
+            },
+            "designerId": "9f85177b-f920-4c7a-900a-1960a2aef57d",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "\"List locations\" button",
+                        "iconCls": "more",
+                        "itemId": "listLocationsButton",
+                        "text": ""
+                    },
+                    "designerId": "8ab326e0-1450-49d2-a9b7-2cc2ff3f09b0"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "right",
+                        "designer|displayName": "\"Add location\" button",
+                        "docked": "right",
+                        "iconAlign": null,
+                        "iconCls": "add",
+                        "text": ""
+                    },
+                    "designerId": "883f151d-ceb6-4f1d-92c2-68d66d4473fb"
+                }
+            ]
+        }
+    ]
+}

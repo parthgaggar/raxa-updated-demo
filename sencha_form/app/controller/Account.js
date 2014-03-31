@@ -20,7 +20,8 @@ Ext.define('raxa.controller.Account', {
         refs: {
             mainView: 'mainview',
             loginPanel: 'mainview #loginPanel',
-            welcomePanel: 'mainview #welcomePanel'
+            welcomePanel: 'mainview #welcomePanel',
+            navigationView: 'navigationview'
         },
 
         control: {
@@ -46,7 +47,6 @@ Ext.define('raxa.controller.Account', {
 
         var loginForm = Ext.create('widget.loginform'),	// Login form
             mainView = this.getMainView();				// Main view
-
         // Navigate to login
         mainView.push({
             xtype: "loginform",
@@ -75,13 +75,13 @@ Ext.define('raxa.controller.Account', {
         	mainView = this.getMainView(),			// Main view
         	loginPanel = this.getLoginPanel(),		// Login and register buttons
         	welcomePanel = this.getWelcomePanel(),	// Welcome panel
-            welcomepanel = Ext.create('widget.welcomePanel');	// Registration form
-
+            welcomepanel = Ext.create('widget.welcomePanel'),	// Registration form
+            navigationView= this.getNavigationView(); 	// Navigation View
         // Success
         var successCallback = function(resp, ops) {
 
             // Go back
-            //mainView.pop();
+           // mainView.pop();
 
             // Hide login panel
             loginPanel.hide();
@@ -91,8 +91,8 @@ Ext.define('raxa.controller.Account', {
 
 
                 // Navigate to welcome panel
-                mainView.push({
-                    xtype: "welcomePanel"
+              navigationView.push({
+               xtype: "welcomePanel"
                 });
 
         };

@@ -24,6 +24,13 @@ Ext.application({
     requires: [
         'Ext.MessageBox'
     ],
+    models: [
+        'Model',
+        'Location'
+    ],
+    stores: [
+        'Locations'
+    ],
     views: [
         'MainView',
         'LoginForm',
@@ -31,10 +38,13 @@ Ext.application({
         'WelcomePanel',
         'patientForm',
         'feedbackForm',
-        'notificationpanel'
+        'notificationpanel',
+        'FormPanel',
+        'NavigationView'
     ],
     controllers: [
-        'Account'
+        'Account',
+        'Locations'
     ],
     name: 'raxa',
 

@@ -7,11 +7,19 @@
     "codeClass": null,
     "userConfig": {
         "controllers": [
-            "Account"
+            "Account",
+            "Locations"
+        ],
+        "models": [
+            "Model",
+            "Location"
         ],
         "name": "raxa",
         "requires": [
             "Ext.MessageBox"
+        ],
+        "stores": [
+            "Locations"
         ],
         "views": [
             "MainView",
@@ -20,7 +28,9 @@
             "WelcomePanel",
             "patientForm",
             "feedbackForm",
-            "notificationpanel"
+            "notificationpanel",
+            "FormPanel",
+            "NavigationView"
         ]
     },
     "designerId": "application"

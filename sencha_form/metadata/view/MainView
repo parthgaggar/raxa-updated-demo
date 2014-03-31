@@ -22,7 +22,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "hidden": false,
+                "hidden": null,
                 "itemId": "homePanel",
                 "layout": "fit"
             },
@@ -36,7 +36,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": false,
+                        "docked": null,
+                        "hidden": null,
                         "itemId": "loginPanel"
                     },
                     "designerId": "aa913960-da6f-441a-8054-e5ccde7987c4",
