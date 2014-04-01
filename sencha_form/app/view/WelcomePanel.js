@@ -48,6 +48,7 @@ Ext.define('raxa.view.WelcomePanel', {
             },
             {
                 xtype: 'navigationview',
+                itemId: 'NavigationView',
                 title: 'Location',
                 iconCls: 'maps'
             }

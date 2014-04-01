@@ -67,6 +67,7 @@
             "codeClass": null,
             "userConfig": {
                 "iconCls": "maps",
+                "itemId": "NavigationView",
                 "title": "Location"
             },
             "designerId": "f03f6a18-4fb0-4209-856b-06a4ffa50873",

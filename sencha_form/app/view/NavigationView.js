@@ -25,6 +25,7 @@ Ext.define('raxa.view.NavigationView', {
     ],
 
     config: {
+        itemId: 'navigationview',
         items: [
             {
                 xtype: 'panel',
@@ -43,15 +44,13 @@ Ext.define('raxa.view.NavigationView', {
                 {
                     xtype: 'button',
                     itemId: 'listLocationsButton',
-                    iconCls: 'more',
-                    text: ''
+                    iconCls: 'more'
                 },
                 {
                     xtype: 'button',
                     align: 'right',
-                    docked: 'right',
-                    iconCls: 'add',
-                    text: ''
+                    itemId: 'addLocationButton',
+                    iconCls: 'add'
                 }
             ]
         }

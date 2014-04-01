@@ -7,7 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "designer|userAlias": "navigationview",
-        "designer|userClassName": "NavigationView"
+        "designer|userClassName": "NavigationView",
+        "itemId": "navigationview"
     },
     "designerId": "bda78f2e-97e6-45e3-813b-7e1690c12e8f",
     "cn": [
@@ -47,6 +48,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|displayName": "NavigationBar",
                 "docked": "top"
             },
             "designerId": "9f85177b-f920-4c7a-900a-1960a2aef57d",
@@ -59,10 +61,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|displayName": "\"List locations\" button",
+                        "designer|displayName": "List Locations Button",
                         "iconCls": "more",
                         "itemId": "listLocationsButton",
-                        "text": ""
+                        "text": null
                     },
                     "designerId": "8ab326e0-1450-49d2-a9b7-2cc2ff3f09b0"
                 },
@@ -75,11 +77,12 @@
                     "codeClass": null,
                     "userConfig": {
                         "align": "right",
-                        "designer|displayName": "\"Add location\" button",
-                        "docked": "right",
+                        "designer|displayName": "Add Location Button",
+                        "docked": null,
                         "iconAlign": null,
                         "iconCls": "add",
-                        "text": ""
+                        "itemId": "addLocationButton",
+                        "text": null
                     },
                     "designerId": "883f151d-ceb6-4f1d-92c2-68d66d4473fb"
                 }

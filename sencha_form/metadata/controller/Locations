@@ -18,11 +18,53 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|controlQuery": "navigationview #addLocationButton",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAddLocationTap",
+                "implHandler": [
+                    "// Show the \"add new location\" panel\r",
+                    "this.getNavigationView().push({\r",
+                    "    xtype: 'formpanel',\r",
+                    "    title: 'New location'\r",
+                    "});\r",
+                    "\r",
+                    "// Hide the toolbar buttons\r",
+                    "this.hideButtons();"
+                ],
+                "name": "tap"
+            },
+            "designerId": "3195a8ba-5791-470e-ade8-21758408d352"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "designer|controlQuery": "navigationview #listPanel list",
                 "designer|targetType": "Ext.dataview.List",
                 "fn": "onLocationTap",
                 "implHandler": [
-                    ""
+                    "// Build the location\r",
+                    "var latitude = record.get('latitude'),\r",
+                    "    longitude = record.get('longitude'),\r",
+                    "    location = new google.maps.LatLng(latitude, longitude);\r",
+                    "\r",
+                    "// Find the map\r",
+                    "var map = this.getMapView();\r",
+                    "\r",
+                    "// Center the map at the location\r",
+                    "map.setMapOptions({\r",
+                    "    center: location\r",
+                    "});\r",
+                    "\r",
+                    "// Show toolbar buttons\r",
+                    "this.showButtons();\r",
+                    "\r",
+                    "// Remove the location list panel\r",
+                    "this.getNavigationView().pop();"
                 ],
                 "name": "disclose"
             },
@@ -40,7 +82,14 @@
                 "designer|targetType": "Ext.Button",
                 "fn": "onListLocationsTap",
                 "implHandler": [
-                    ""
+                    "// Show the list panel view\r",
+                    "this.getNavigationView().push({\r",
+                    "    xtype: 'listpanel',\r",
+                    "    title: 'List spot'\r",
+                    "});\r",
+                    "\r",
+                    "// Hide toolbar buttons\r",
+                    "this.hideButtons();"
                 ],
                 "name": "tap"
             },
@@ -58,7 +107,8 @@
                 "designer|targetType": "Ext.navigation.View",
                 "fn": "onBack",
                 "implHandler": [
-                    ""
+                    "// Show toolbar buttons\r",
+                    "this.showButtons();"
                 ],
                 "name": "back"
             },
@@ -76,7 +126,8 @@
                 "designer|targetType": "Ext.navigation.View",
                 "fn": "onStart",
                 "implHandler": [
-                    ""
+                    "// Show toolbar buttons\r",
+                    "this.showButtons();"
                 ],
                 "name": "activate"
             },
@@ -94,7 +145,35 @@
                 "designer|targetType": "Ext.field.Text",
                 "fn": "onNewLocationPositionChange",
                 "implHandler": [
-                    ""
+                    "// Find the map\r",
+                    "var map = this.getNewLocationMap().getMap();\r",
+                    "\r",
+                    "// Build a marker if there isn't one\r",
+                    "if (!this.newLocationMapMarker) {\r",
+                    "    this.newLocationMapMarker = new google.maps.Marker();\r",
+                    "}\r",
+                    "\r",
+                    "// Hide the map marker\r",
+                    "this.newLocationMapMarker.setMap(null);\r",
+                    "\r",
+                    "// Geocode the string\r",
+                    "var me = this;\r",
+                    "this.geocodeString(newValue, function(position) {\r",
+                    "\r",
+                    "    // Move the map to the position\r",
+                    "    map.setOptions({\r",
+                    "        center: position,\r",
+                    "        zoom: 15\r",
+                    "    });\r",
+                    "\r",
+                    "    // Drop a marker there\r",
+                    "    me.newLocationMapMarker.setOptions({\r",
+                    "        map: map,\r",
+                    "        position: position,\r",
+                    "        animation: google.maps.Animation.DROP\r",
+                    "    });\r",
+                    "\r",
+                    "});"
                 ],
                 "name": "change"
             },
@@ -112,7 +191,58 @@
                 "designer|targetType": "ext.button",
                 "fn": "onSaveLocationButtonTap",
                 "implHandler": [
-                    ""
+                    "// Get the form and its values\r",
+                    "var form = this.getNewLocationForm(),\r",
+                    "    values = form.getValues();\r",
+                    "\r",
+                    "// Get the locations store\r",
+                    "var store = Ext.getStore('Locations');\r",
+                    "\r",
+                    "// Get the map object\r",
+                    "var map = this.getMapView().getMap();\r",
+                    "\r",
+                    "// Geocode the string, and then...\r",
+                    "var me = this;\r",
+                    "this.geocodeString(values.location, function(position) {\r",
+                    "\r",
+                    "    // If there's a valid position...\r",
+                    "    if (position) {\r",
+                    "\r",
+                    "        // Add this to the store\r",
+                    "        store.add({\r",
+                    "            name: values.name,\r",
+                    "            description: values.description,\r",
+                    "            latitude: position.lat(),\r",
+                    "            longitude: position.lng()\r",
+                    "        });\r",
+                    "\r",
+                    "        // Build a list of markers if we don't have one\r",
+                    "        if (!me.markers) {\r",
+                    "            me.markers = [];\r",
+                    "        }\r",
+                    "\r",
+                    "        // Drop a marker\r",
+                    "        var marker = new google.maps.Marker({\r",
+                    "            position: position,\r",
+                    "            map: map,\r",
+                    "            animation: google.maps.Animation.DROP\r",
+                    "        });\r",
+                    "        me.markers.push(marker);\r",
+                    "\r",
+                    "        // Move the map there\r",
+                    "        map.setOptions({\r",
+                    "            center: position\r",
+                    "        });\r",
+                    "\r",
+                    "        // Go back to the map view\r",
+                    "        me.getNavigationView().pop();\r",
+                    "\r",
+                    "        // Show the navbar buttons\r",
+                    "        me.showButtons();\r",
+                    "\r",
+                    "    }\r",
+                    "\r",
+                    "});"
                 ],
                 "name": "tap"
             },
@@ -130,7 +260,50 @@
                 "designer|targetType": "Ext.dataview.List",
                 "fn": "onLocationSwipe",
                 "implHandler": [
-                    ""
+                    "// Build the title and message\r",
+                    "var title = 'Delete',\r",
+                    "    message = 'Delete ' + record.get('name') + '?';\r",
+                    "\r",
+                    "// Confirm the deletion, and then...\r",
+                    "var me = this;\r",
+                    "Ext.Msg.confirm(title, message, function(response) {\r",
+                    "\r",
+                    "    // If we get a \"yes\"...\r",
+                    "    if (response == 'yes') {\r",
+                    "\r",
+                    "        // Get the store\r",
+                    "        var store = Ext.getStore('Locations');\r",
+                    "\r",
+                    "        // Do the deletion from the store\r",
+                    "        store.remove(record);\r",
+                    "\r",
+                    "        // Find and remove the marker\r",
+                    "        me.markers.forEach(function(marker, index) {\r",
+                    "\r",
+                    "            // Get the values to compare\r",
+                    "            var markerLat = marker.getPosition().lat(),\r",
+                    "                markerLng = marker.getPosition().lng(),\r",
+                    "                removedLat = record.get('latitude'),\r",
+                    "                removedLng = record.get('longitude');\r",
+                    "\r",
+                    "            // Should we remove them?\r",
+                    "            // This will remove two markers at the same location.\r",
+                    "            if ((markerLat == removedLat) && (markerLng == removedLng)) {\r",
+                    "                marker.setMap(null);\r",
+                    "                me.markers.splice(index, 1);\r",
+                    "            }\r",
+                    "\r",
+                    "        });\r",
+                    "\r",
+                    "        // If we've removed the last one, go back to the main menu\r",
+                    "        if (store.getCount() === 0) {\r",
+                    "            me.getNavigationView().pop();\r",
+                    "            me.showButtons();\r",
+                    "        }\r",
+                    "\r",
+                    "    }\r",
+                    "\r",
+                    "});"
                 ],
                 "name": "itemswipe"
             },
@@ -146,7 +319,19 @@
             "userConfig": {
                 "fn": "showButtons",
                 "implHandler": [
-                    ""
+                    "// Do we have any locations to show?\r",
+                    "var locationCount = Ext.getStore('Locations').getCount(),\r",
+                    "    hasLocations = (locationCount !== 0);\r",
+                    "\r",
+                    "// Show the \"add location\" button\r",
+                    "this.getAddLocationButton().show();\r",
+                    "\r",
+                    "// Show the \"list locations\" button if we should\r",
+                    "if (hasLocations) {\r",
+                    "    this.getListLocationsButton().show();\r",
+                    "} else {\r",
+                    "    this.getListLocationsButton().hide();\r",
+                    "}"
                 ]
             },
             "designerId": "77224081-bc8a-4445-84b5-7337fc3c04f4"
@@ -161,7 +346,9 @@
             "userConfig": {
                 "fn": "hideButtons",
                 "implHandler": [
-                    ""
+                    "// Show both buttons on the toolbar\r",
+                    "this.getAddLocationButton().hide();\r",
+                    "this.getListLocationsButton().hide();"
                 ]
             },
             "designerId": "4566bb74-fb96-43cc-8bd1-9869229f68f1"
@@ -180,7 +367,18 @@
                 ],
                 "fn": "geocodeString",
                 "implHandler": [
-                    ""
+                    "// Build a Google Maps geocoder and its options\r",
+                    "var geocoder = new google.maps.Geocoder(),\r",
+                    "    options = { address: str };\r",
+                    "\r",
+                    "// Turn the string into a location\r",
+                    "geocoder.geocode(options, function(results, status) {\r",
+                    "    if (status == \"OK\") {\r",
+                    "        callback(results[0].geometry.location);\r",
+                    "    } else {\r",
+                    "        callback(null);\r",
+                    "    }\r",
+                    "});"
                 ]
             },
             "designerId": "99c41099-051b-4238-be57-f9a31e87a225"

@@ -81,8 +81,8 @@
                     "\tmainView = this.getMainView(),\t\t\t// Main view\r",
                     "\tloginPanel = this.getLoginPanel(),\t\t// Login and register buttons\r",
                     "\twelcomePanel = this.getWelcomePanel(),\t// Welcome panel\r",
-                    "    welcomepanel = Ext.create('widget.welcomePanel'),\t// Registration form\r",
-                    "    navigationView= this.getNavigationView(); \t// Navigation View\r",
+                    "    welcomepanel = Ext.create('widget.welcomePanel');\t// Registration form\r",
+                    " //   navigationView= this.getNavigationView(); \t// Navigation View\r",
                     "// Success\r",
                     "var successCallback = function(resp, ops) {\r",
                     "\r",
@@ -97,7 +97,7 @@
                     "\r",
                     "\r",
                     "        // Navigate to welcome panel\r",
-                    "      navigationView.push({\r",
+                    "      mainView.push({\r",
                     "       xtype: \"welcomePanel\"\r",
                     "        });\r",
                     "\r",
@@ -284,19 +284,6 @@
                 "name": "tap"
             },
             "designerId": "1520470a-fcb9-4de3-9c5a-b223ac43f2da"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "navigationView",
-                "selector": "navigationview"
-            },
-            "designerId": "64a609d3-eea4-4a91-b94e-3df18382279b"
         }
     ]
 }
